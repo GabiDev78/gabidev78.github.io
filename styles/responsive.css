@@ -1,0 +1,53 @@
+/* Small screens: surface the helper row, tighten padding, prefer narrow banner */
+@media (max-width: 640px) {
+  html, body {
+    font-size: clamp(12px, 3.4vw, 14px);
+  }
+
+  .terminal {
+    padding: 0.8em 0.8em calc(0.6em + env(safe-area-inset-bottom));
+    padding-top: calc(0.8em + env(safe-area-inset-top));
+  }
+
+  /* Show only once JS has populated it (step 8: mobile polish). */
+  .helper-row:not(:empty) {
+    display: flex;
+    gap: 0.4em;
+    flex-wrap: wrap;
+    margin-top: 0.6em;
+    padding: 0.4em 0;
+    border-top: 1px solid var(--fg-muted);
+  }
+
+  .helper-row button {
+    flex: 1 1 auto;
+    min-width: 3.4em;
+    padding: 0.55em 0.4em;
+    font: inherit;
+    font-size: 0.85em;
+    background: var(--bg-elev);
+    color: var(--accent);
+    border: 1px solid var(--fg-muted);
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .helper-row button:active {
+    background: var(--accent);
+    color: var(--bg);
+  }
+}
+
+/* When a virtual keyboard overlays content, keep input visible */
+@supports (height: env(keyboard-inset-height)) {
+  .terminal {
+    padding-bottom: calc(0.8em + env(keyboard-inset-height, 0px) + env(safe-area-inset-bottom));
+  }
+}
+
+/* Print: just dump the noscript fallback nicely */
+@media print {
+  .terminal { display: none !important; }
+  .noscript-cv { display: block !important; color: #000; background: #fff; }
+}

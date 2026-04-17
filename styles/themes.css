@@ -1,0 +1,97 @@
+/* ---------- Theme variable contract ----------
+ * Every theme must define:
+ *   --bg, --bg-elev, --fg, --fg-dim, --fg-muted,
+ *   --accent, --accent-2, --prompt,
+ *   --red, --green, --yellow, --blue, --magenta, --cyan,
+ *   --selection, --scrollbar
+ */
+
+/* Default = matrix */
+:root,
+:root[data-theme="matrix"] {
+  --bg: #000000;
+  --bg-elev: #0a0f0a;
+  --fg: #00ff9c;
+  --fg-dim: #00cc7d;
+  --fg-muted: #006e44;
+
+  --accent: #39ff14;
+  --accent-2: #00ffd5;
+  --prompt: #39ff14;
+
+  --red: #ff4d4d;
+  --green: #39ff14;
+  --yellow: #f4f100;
+  --blue: #5ad7ff;
+  --magenta: #ff5fcf;
+  --cyan: #00ffd5;
+
+  --selection: #39ff14;
+  --scrollbar: #003a25;
+}
+
+:root[data-theme="amber"] {
+  --bg: #1a0f00;
+  --bg-elev: #2a1800;
+  --fg: #ffb000;
+  --fg-dim: #cc8a00;
+  --fg-muted: #6b4800;
+
+  --accent: #ffcb6b;
+  --accent-2: #ff8800;
+  --prompt: #ffcb6b;
+
+  --red: #ff6b3d;
+  --green: #ffd166;
+  --yellow: #fff176;
+  --blue: #ffb070;
+  --magenta: #ff9966;
+  --cyan: #ffd9a0;
+
+  --selection: #ffcb6b;
+  --scrollbar: #4a2f00;
+}
+
+:root[data-theme="dracula"] {
+  --bg: #282a36;
+  --bg-elev: #21222c;
+  --fg: #f8f8f2;
+  --fg-dim: #b8b8a8;
+  --fg-muted: #6272a4;
+
+  --accent: #bd93f9;
+  --accent-2: #ff79c6;
+  --prompt: #50fa7b;
+
+  --red: #ff5555;
+  --green: #50fa7b;
+  --yellow: #f1fa8c;
+  --blue: #8be9fd;
+  --magenta: #ff79c6;
+  --cyan: #8be9fd;
+
+  --selection: #44475a;
+  --scrollbar: #44475a;
+}
+
+:root[data-theme="solarized-dark"] {
+  --bg: #002b36;
+  --bg-elev: #073642;
+  --fg: #93a1a1;
+  --fg-dim: #839496;
+  --fg-muted: #586e75;
+
+  --accent: #268bd2;
+  --accent-2: #2aa198;
+  --prompt: #859900;
+
+  --red: #dc322f;
+  --green: #859900;
+  --yellow: #b58900;
+  --blue: #268bd2;
+  --magenta: #d33682;
+  --cyan: #2aa198;
+
+  --selection: #073642;
+  --scrollbar: #094352;
+}

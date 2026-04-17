@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="matrix">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Gabriel Glazman — cybersecurity engineer · portfolio</title>
+  <meta name="description" content="Gabriel Glazman — apprentice cybersecurity engineer at Thales LAS, MSc candidate at Université Paris Descartes. Interactive terminal-style portfolio. Type `help` to begin." />
+  <meta name="author" content="Gabriel Glazman" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph / link previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gabriel Glazman — cybersecurity engineer" />
+  <meta property="og:description" content="Cybersecurity engineer · MSc candidate · apprentice @ Thales LAS. Interactive terminal-style portfolio." />
+  <meta property="og:image" content="./assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/themes.css" />
+  <link rel="stylesheet" href="./styles/terminal.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+  <link rel="stylesheet" href="./styles/responsive.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="visually-hidden" href="#term-input">Skip to terminal input</a>
+
+  <main class="terminal" id="terminal" aria-label="Interactive terminal">
+    <div
+      class="transcript"
+      id="transcript"
+      role="log"
+      aria-live="polite"
+      aria-label="Terminal output"
+    ></div>
+
+    <div class="input-line" id="input-line">
+      <span class="prompt" id="prompt" aria-hidden="true">msf6 &gt; </span>
+      <span class="input-display" id="input-display" aria-hidden="true"></span>
+      <span class="cursor" id="cursor" aria-hidden="true">&nbsp;</span>
+      <input
+        type="text"
+        id="term-input"
+        class="term-input"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        inputmode="text"
+        aria-label="Command input"
+      />
+    </div>
+
+    <!-- Mobile-only soft helper row, populated by JS -->
+    <div class="helper-row" id="helper-row" aria-hidden="true"></div>
+  </main>
+
+  <!-- SEO + screen-reader + no-JS fallback: full CV in semantic HTML -->
+  <noscript>
+    <article class="noscript-cv">
+      <h1>Gabriel Glazman</h1>
+      <p><strong>Cybersecurity engineer · MSc candidate · apprentice @ Thales LAS</strong></p>
+      <p>Villejuif, France</p>
+      <p>This site renders an interactive terminal that requires JavaScript. Below is a static fallback of the same content.</p>
+
+      <nav>
+        <a href="#about">About</a> ·
+        <a href="#experience">Experience</a> ·
+        <a href="#education">Education</a> ·
+        <a href="#skills">Skills</a> ·
+        <a href="#projects">Projects</a> ·
+        <a href="#credentials">Credentials</a> ·
+        <a href="#contact">Contact</a> ·
+        <a href="./assets/cv.pdf">Download CV (PDF)</a>
+      </nav>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>Finishing an MSc in Cybersecurity at Université Paris Descartes while working as an apprentice cybersecurity engineer at Thales LAS (Rungis).</p>
+        <p>Day-to-day: CVE / NVD / e-santé watch, vulnerability analysis, threat and attack-path modeling, internal pentests, and Python automation for the security team.</p>
+        <p>Side projects span CNN-based malware detection, AI-driven CVE → MITRE ATT&amp;CK mapping, a from-scratch DBMS, and a civic app that won the national Charlemagne Youth Prize.</p>
+        <p>Trilingual (French · Swedish · English C2), with academic Spanish and Japanese.</p>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <article>
+          <h3>Apprentice Cybersecurity Engineer — Thales LAS</h3>
+          <p><em>2024 — 2026 · Rungis, France</em></p>
+          <ul>
+            <li>CVE watch across CERTs, NVD, and e-santé feeds; triage and vulnerability analysis.</li>
+            <li>Threat modeling and attack-path modeling on embedded and enterprise systems.</li>
+            <li>Applied frameworks: MITRE ATT&amp;CK, NIST, Cyber Kill Chain.</li>
+            <li>Internal pentesting engagements and remediation tracking.</li>
+            <li>Client-facing project management on cybersecurity deliverables.</li>
+            <li>Python scripting and automation for the security team; R&amp;D work on tooling.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>CS Project Tutor — Licence 2/3, Université Paris Descartes</h3>
+          <p><em>2026 · Paris, France</em></p>
+          <ul>
+            <li>Mentoring undergraduate students through their CS projects: code review, design feedback, unblocking.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Computer Science &amp; Maths Teacher — LabSchool Paris</h3>
+          <p><em>2023 — 2024 · Montreuil, France</em></p>
+          <ul>
+            <li>Teaching computer science and mathematics to 3ème / 2de students.</li>
+            <li>Designing hands-on lessons and progress assessments.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>MSc Cybersecurity</strong> — Université Paris Descartes, UFR Bio Fondamentales (2024 — 2026). Apprenticeship track with Thales LAS.</li>
+          <li><strong>Licence Mathématiques et Informatique — parcours Informatique</strong> — Université Paris Descartes, UFR MathInfo (2021 — 2024).</li>
+          <li><strong>Classes préparatoires d'ingénieur en informatique</strong> — EPITA, Le Kremlin-Bicêtre (2019 — 2021).</li>
+          <li><strong>Baccalauréat International OIB — Swedish section, Mention Bien</strong> — Lycée International de Saint-Germain-en-Laye (2019).</li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+
+        <h3>Cybersecurity</h3>
+        <p>Vulnerability analysis · MITRE ATT&amp;CK · Threat modeling · Attack-path modeling · Web pentesting · OSINT · CVE watch and automation.</p>
+
+        <h3>Tooling</h3>
+        <p>Nmap · Burp Suite · Wireshark · Metasploit · recon-ng · Scrapy / Selenium · Wazuh (SOC).</p>
+
+        <h3>Programming</h3>
+        <p>Python · Java · C · JavaScript · C# · PHP · Rust · TypeScript.</p>
+
+        <h3>Web &amp; Data</h3>
+        <p>HTML / CSS · SQL / databases · DBMS internals · NoSQL.</p>
+
+        <h3>Spoken languages</h3>
+        <p>French (native) · Swedish (native) · English (C2, bilingual) · Spanish (academic) · Japanese (academic).</p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <article>
+          <h3>Delphi Scanner</h3>
+          <p>Windows malware detection with behavioral interpretation: a CNN models Windows API-call sequences to classify PE files. Stack: Rust, Python, TypeScript.</p>
+        </article>
+
+        <article>
+          <h3>CVE → MITRE ATT&amp;CK mapping filler</h3>
+          <p>Fills missing CVE → CWE → CAPEC → ATT&amp;CK mappings with ML (xgboost, BERT, ensemble). Stack: Python.</p>
+        </article>
+
+        <article>
+          <h3>Password-cracking lab</h3>
+          <p>Reproducible lab for benchmarking dictionary, rule-based, mask, and hybrid password-cracking strategies. Stack: Python.</p>
+        </article>
+
+        <article>
+          <h3>Vulnerability scan automator</h3>
+          <p>Automates CVE scans against servers, surfaces findings, and alerts on newly-introduced vulnerabilities. Stack: Python, JavaScript, HTML, CSS.</p>
+        </article>
+
+        <article>
+          <h3>Simple optimized DBMS</h3>
+          <p>Relational database engine built from scratch: disk layer, byte-level memory management, query parser. Stack: Python.</p>
+        </article>
+
+        <article>
+          <h3>NP-hard Rectangle Packing solver</h3>
+          <p>Solver combining multiple heuristics and approximation algorithms with concurrent execution. Stack: Python.</p>
+        </article>
+
+        <article>
+          <h3>Unity multiplayer game</h3>
+          <p>Built the multiplayer networking layer and authored 3D models. Stack: C#, Unity.</p>
+        </article>
+
+        <article>
+          <h3>EVRISOPS — civic app</h3>
+          <p>Civic-engagement application; built the back-end and NoSQL data layer. <strong>National winner</strong> of the Charlemagne Youth Prize for Europe. Stack: Python, HTML, JavaScript.</p>
+        </article>
+      </section>
+
+      <section id="credentials">
+        <h2>Credentials</h2>
+        <ul>
+          <li><strong>Root Me — 620 points</strong>, handle <a href="https://www.root-me.org/GabiDev94">GabiDev94</a>.</li>
+          <li><strong>Charlemagne Youth Prize for Europe</strong> — National winner (with EVRISOPS).</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email: <a href="mailto:gabriel.glazman@etu.u-paris.fr">gabriel.glazman@etu.u-paris.fr</a></li>
+          <li>Phone: +33 6 82 56 16 73</li>
+          <li>Root Me: <a href="https://www.root-me.org/GabiDev94">root-me.org/GabiDev94</a></li>
+          <li><a href="./assets/cv.pdf">Download CV (PDF)</a></li>
+        </ul>
+      </section>
+    </article>
+  </noscript>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* ---------- Terminal shell ---------- */
+.terminal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.2em 1.4em calc(0.8em + env(safe-area-inset-bottom));
+  padding-top: calc(1.2em + env(safe-area-inset-top));
+  overflow-y: auto;
+  cursor: text;
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 60%),
+    var(--bg);
+  /* Subtle CRT-ish vibe; kept very light so it never harms readability */
+  background-attachment: fixed;
+}
+
+/* ---------- Transcript (output history) ---------- */
+.transcript {
+  flex: 0 1 auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.transcript .line {
+  margin: 0;
+  padding: 0;
+}
+
+.transcript .line + .line {
+  margin-top: 0; /* tight terminal feel */
+}
+
+.transcript .echo {
+  color: var(--fg);
+}
+
+.transcript .echo .echo-prompt {
+  color: var(--prompt);
+  font-weight: 600;
+}
+
+/* Semantic color classes — referenced by the trusted render.js helpers */
+.fg-red     { color: var(--red); }
+.fg-green   { color: var(--green); }
+.fg-yellow  { color: var(--yellow); }
+.fg-blue    { color: var(--blue); }
+.fg-magenta { color: var(--magenta); }
+.fg-cyan    { color: var(--cyan); }
+.fg-dim     { color: var(--fg-dim); }
+.fg-muted   { color: var(--fg-muted); }
+.fg-accent  { color: var(--accent); }
+.fg-accent2 { color: var(--accent-2); }
+.fg-prompt  { color: var(--prompt); }
+
+.bold       { font-weight: 700; }
+.italic     { font-style: italic; }
+.underline  { text-decoration: underline; text-underline-offset: 2px; }
+
+/* msf-style status prefixes — color-blind safe by construction */
+.prefix-err  { color: var(--red);     font-weight: 700; }
+.prefix-ok   { color: var(--green);   font-weight: 700; }
+.prefix-info { color: var(--blue);    font-weight: 700; }
+.prefix-warn { color: var(--yellow);  font-weight: 700; }
+
+/* Tables (msf show modules style) */
+.transcript table.term-table {
+  border-collapse: collapse;
+  margin: 0.4em 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.transcript table.term-table th,
+.transcript table.term-table td {
+  text-align: left;
+  padding: 0.05em 1.1em 0.05em 0;
+  vertical-align: top;
+}
+
+.transcript table.term-table th {
+  color: var(--accent);
+  border-bottom: 1px solid var(--fg-muted);
+  font-weight: 700;
+}
+
+.transcript .banner {
+  color: var(--accent);
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  line-height: 1;
+}
+
+/* ---------- Input line ---------- */
+.input-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 0.2em;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.prompt {
+  color: var(--prompt);
+  font-weight: 600;
+  user-select: none;
+  white-space: pre;
+  flex-shrink: 0;
+}
+
+.input-display {
+  color: var(--fg);
+  white-space: pre;
+  word-break: break-all;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: cursor-blink 1.05s steps(2, start) infinite;
+}
+
+.cursor.idle {
+  animation: none;
+  opacity: 0.55;
+}
+
+/* The real input is invisible — we mirror its value into .input-display.
+   It must remain focusable (and big enough on mobile to invite focus). */
+.term-input {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: transparent;
+  caret-color: transparent;
+}
+
+/* ---------- Helper row (mobile only; toggled in responsive.css) ---------- */
+.helper-row {
+  display: none;
+}
